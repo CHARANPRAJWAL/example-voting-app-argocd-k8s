@@ -1,0 +1,28 @@
+{{- if .Values.applications.database.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.applications.database.name }}
+  namespace: {{ .Values.argocd.namespace }}
+  finalizers:
+{{- toYaml .Values.argocd.finalizers | nindent 4 }}
+  labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    component: database
+spec:
+  project: {{ .Values.global.project }}
+  source:
+    repoURL: {{ .Values.global.repoURL }}
+    targetRevision: {{ .Values.global.targetRevision }}
+    path: {{ .Values.applications.database.path }}
+    directory:
+      include: {{ .Values.applications.database.directory.include }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.global.namespace }}
+  syncPolicy:
+{{- toYaml .Values.syncPolicy | nindent 4 }}
+{{- end }} 

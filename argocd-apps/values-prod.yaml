@@ -1,0 +1,61 @@
+# Production environment values
+global:
+  namespace: voting-app-prod
+  repoURL: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
+  targetRevision: main
+  project: production
+
+argocd:
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+  syncOptions:
+    - CreateNamespace=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
+
+applications:
+  root:
+    enabled: true
+    name: voting-app-root-prod
+    path: k8s-specifications/argocd-apps
+  
+  database:
+    enabled: true
+    name: database-app-prod
+    path: k8s-specifications
+    directory:
+      include: db.yaml
+  
+  redis:
+    enabled: true
+    name: redis-app-prod
+    path: k8s-specifications
+    directory:
+      include: redis.yaml
+  
+  vote:
+    enabled: true
+    name: vote-app-prod
+    path: k8s-specifications
+    directory:
+      include: vote.yaml
+  
+  result:
+    enabled: true
+    name: result-app-prod
+    path: k8s-specifications
+    directory:
+      include: result.yaml
+  
+  worker:
+    enabled: true
+    name: worker-app-prod
+    path: k8s-specifications
+    directory:
+      include: worker.yaml 
