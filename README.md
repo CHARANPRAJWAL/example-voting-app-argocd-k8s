@@ -5,7 +5,7 @@ This repository contains the Kubernetes manifests and ArgoCD Helm chart specific
 ## Repository Structure
 
 ```
-k8s-specifications/
+
 ├── argocd-apps/                # Helm chart for ArgoCD App of Apps pattern
 │   ├── Chart.yaml              # Helm chart metadata
 │   ├── values.yaml             # Default values
@@ -25,11 +25,11 @@ k8s-specifications/
 │   ├── result-app.yaml         # Standalone ArgoCD Application manifest
 │   ├── worker-app.yaml         # Standalone ArgoCD Application manifest
 │   └── README.md               # Helm chart documentation
-├── db.yaml                     # PostgreSQL Deployment & Service
-├── redis.yaml                  # Redis Deployment & Service
-├── vote.yaml                   # Voting frontend Deployment & Service
-├── result.yaml                 # Result frontend Deployment & Service
-└── worker.yaml                 # Worker Deployment & Service
+db.yaml                     # PostgreSQL Deployment & Service
+redis.yaml                  # Redis Deployment & Service
+vote.yaml                   # Voting frontend Deployment & Service
+result.yaml                 # Result frontend Deployment & Service
+worker.yaml                 # Worker Deployment & Service
 ```
 
 ## What is Included?
