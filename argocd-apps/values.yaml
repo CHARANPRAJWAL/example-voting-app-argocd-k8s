@@ -30,7 +30,7 @@ applications:
   root:
     enabled: true
     name: voting-app-root
-    path: k8s-specifications/argocd-apps
+    path: argocd-apps
   
   # Database application
   database:

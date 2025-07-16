@@ -23,7 +23,7 @@ applications:
   root:
     enabled: true
     name: voting-app-root-dev
-    path: k8s-specifications/argocd-apps
+    path: argocd-apps
   
   database:
     enabled: true

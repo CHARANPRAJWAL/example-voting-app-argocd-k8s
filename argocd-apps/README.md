@@ -70,20 +70,20 @@ argocd-apps/
 
 2. **Deploy to development**:
    ```bash
-   helm install voting-app-dev ./k8s-specifications/argocd-apps \
-     --values ./k8s-specifications/argocd-apps/values-dev.yaml
+   helm install voting-app-dev ./argocd-apps \
+     --values ./argocd-apps/values-dev.yaml
    ```
 
 3. **Deploy to production**:
    ```bash
-   helm install voting-app-prod ./k8s-specifications/argocd-apps \
-     --values ./k8s-specifications/argocd-apps/values-prod.yaml
+   helm install voting-app-prod ./argocd-apps \
+     --values ./argocd-apps/values-prod.yaml
    ```
 
 4. **Upgrade existing deployment**:
    ```bash
-   helm upgrade voting-app-dev ./k8s-specifications/argocd-apps \
-     --values ./k8s-specifications/argocd-apps/values-dev.yaml
+   helm upgrade voting-app-dev ./argocd-apps \
+     --values ./argocd-apps/values-dev.yaml
    ```
 
 ## Configuration
@@ -111,7 +111,7 @@ applications:
   root:
     enabled: true              # Enable root application
     name: voting-app-root      # Application name
-    path: k8s-specifications/argocd-apps
+    path: argocd-apps
   # ... other applications
 ```
 
@@ -180,20 +180,20 @@ argocd app sync voting-app-root-dev
    - Verify target namespace exists or can be created
 
 3. **Helm installation failed**:
-   - Run `helm lint ./k8s-specifications/argocd-apps` to check for issues
+   - Run `helm lint ./argocd-apps` to check for issues
    - Verify all required values are set
 
 ### Debug Commands
 
 ```bash
 # Lint the chart
-helm lint ./k8s-specifications/argocd-apps
+helm lint ./argocd-apps
 
 # Dry run installation
-helm install --dry-run --debug voting-app-dev ./k8s-specifications/argocd-apps \
-  --values ./k8s-specifications/argocd-apps/values-dev.yaml
+helm install --dry-run --debug voting-app-dev ./argocd-apps \
+  --values ./argocd-apps/values-dev.yaml
 
 # Template rendering
-helm template voting-app-dev ./k8s-specifications/argocd-apps \
-  --values ./k8s-specifications/argocd-apps/values-dev.yaml
+helm template voting-app-dev ./argocd-apps \
+  --values ./argocd-apps/values-dev.yaml
 ``` 
