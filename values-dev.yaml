@@ -23,39 +23,39 @@ applications:
   root:
     enabled: true
     name: voting-app-root-dev
-    path: argocd-apps
+    path: .
   
   database:
     enabled: true
     name: database-app-dev
-    path: argocd-apps
+    path: .
     directory:
       include: db.yaml
   
   redis:
     enabled: true
     name: redis-app-dev
-    path: argocd-apps
+    path: .
     directory:
       include: redis.yaml
   
   vote:
     enabled: true
     name: vote-app-dev
-    path: argocd-apps
+    path: .
     directory:
       include: vote.yaml
   
   result:
     enabled: true
     name: result-app-dev
-    path: argocd-apps
+    path: .
     directory:
       include: result.yaml
   
   worker:
     enabled: true
     name: worker-app-dev
-    path: argocd-apps
+    path: .
     directory:
       include: worker.yaml 

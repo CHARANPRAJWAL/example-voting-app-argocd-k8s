@@ -1,15 +1,20 @@
-# Production environment values
-global:
-  namespace: voting-app-prod
-  repoURL: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
-  targetRevision: main
-  project: production
+# Default values for voting-app-argocd
+# This is a YAML-formatted file.
 
+# Global configuration
+global:
+  namespace: voting-app
+  repoURL: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
+  targetRevision: HEAD
+  project: default
+
+# ArgoCD configuration
 argocd:
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 
+# Sync policy configuration
 syncPolicy:
   automated:
     prune: true
@@ -19,43 +24,50 @@ syncPolicy:
     - PrunePropagationPolicy=foreground
     - PruneLast=true
 
+# Individual application configurations
 applications:
+  # Root application that manages all others
   root:
     enabled: true
-    name: voting-app-root-prod
-    path: argocd-apps
+    name: voting-app-root
+    path: .
   
+  # Database application
   database:
     enabled: true
-    name: database-app-prod
-    path: argocd-apps
+    name: database-app
+    path: .
     directory:
       include: db.yaml
   
+  # Redis application
   redis:
     enabled: true
-    name: redis-app-prod
-    path: argocd-apps
+    name: redis-app
+    path: .
     directory:
       include: redis.yaml
   
+  # Vote application
   vote:
     enabled: true
-    name: vote-app-prod
-    path: argocd-apps
+    name: vote-app
+    path: .
     directory:
       include: vote.yaml
   
+  # Result application
   result:
     enabled: true
-    name: result-app-prod
-    path: argocd-apps
+    name: result-app
+    path: .
     directory:
       include: result.yaml
   
+  # Worker application
   worker:
     enabled: true
-    name: worker-app-prod
-    path: argocd-apps
+    name: worker-app
+    path: .
     directory:
       include: worker.yaml 

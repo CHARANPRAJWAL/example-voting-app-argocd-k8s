@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vote-app
+  name: result-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,9 +10,9 @@ spec:
   source:
     repoURL: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
     targetRevision: HEAD
-    path: argocd-apps
+    path: .
     directory:
-      include: vote.yaml
+      include: result.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: voting-app
