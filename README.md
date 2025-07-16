@@ -48,7 +48,7 @@ worker.yaml                 # Worker Deployment & Service
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
-cd k8s-specifications
+cd argocd-apps
 ```
 
 ### 2. Deploy with Helm (Recommended)

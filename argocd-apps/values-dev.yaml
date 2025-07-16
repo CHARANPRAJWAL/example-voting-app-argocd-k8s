@@ -28,34 +28,34 @@ applications:
   database:
     enabled: true
     name: database-app-dev
-    path: k8s-specifications
+    path: argocd-apps
     directory:
       include: db.yaml
   
   redis:
     enabled: true
     name: redis-app-dev
-    path: k8s-specifications
+    path: argocd-apps
     directory:
       include: redis.yaml
   
   vote:
     enabled: true
     name: vote-app-dev
-    path: k8s-specifications
+    path: argocd-apps
     directory:
       include: vote.yaml
   
   result:
     enabled: true
     name: result-app-dev
-    path: k8s-specifications
+    path: argocd-apps
     directory:
       include: result.yaml
   
   worker:
     enabled: true
     name: worker-app-dev
-    path: k8s-specifications
+    path: argocd-apps
     directory:
       include: worker.yaml 

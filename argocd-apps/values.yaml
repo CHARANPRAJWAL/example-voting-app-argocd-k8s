@@ -36,7 +36,7 @@ applications:
   database:
     enabled: true
     name: database-app
-    path: k8s-specifications
+    path: argocd-apps
     directory:
       include: db.yaml
   
@@ -44,7 +44,7 @@ applications:
   redis:
     enabled: true
     name: redis-app
-    path: k8s-specifications
+    path: argocd-apps
     directory:
       include: redis.yaml
   
@@ -52,7 +52,7 @@ applications:
   vote:
     enabled: true
     name: vote-app
-    path: k8s-specifications
+    path: argocd-apps
     directory:
       include: vote.yaml
   
@@ -60,7 +60,7 @@ applications:
   result:
     enabled: true
     name: result-app
-    path: k8s-specifications
+    path: argocd-apps
     directory:
       include: result.yaml
   
@@ -68,6 +68,6 @@ applications:
   worker:
     enabled: true
     name: worker-app
-    path: k8s-specifications
+    path: argocd-apps
     directory:
       include: worker.yaml 
