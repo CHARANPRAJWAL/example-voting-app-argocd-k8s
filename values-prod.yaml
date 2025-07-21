@@ -1,51 +1,51 @@
-# Production environment values
-global:
-  namespace: voting-app-prod
-  repoURL: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
-  targetRevision: main
-  project: default
+  # Production environment values
+  global:
+    namespace: voting-app-prod
+    repoURL: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
+    targetRevision: main
+    project: default
 
-argocd:
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  argocd:
+    namespace: argocd
+    finalizers:
+      - resources-finalizer.argocd.argoproj.io
 
-syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
-  syncOptions:
-    - CreateNamespace=true
-    - PrunePropagationPolicy=foreground
-    - PruneLast=true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
 
-applications:
-  root:
-    enabled: true
-    name: voting-app-root-prod
-    path: .
-  
-  database:
-    enabled: true
-    name: database-app-prod
-    path: k8s-manifests/database
-  
-  redis:
-    enabled: true
-    name: redis-app-prod
-    path: k8s-manifests/redis
-  
-  vote:
-    enabled: true
-    name: vote-app-prod
-    path: k8s-manifests/vote
-  
-  result:
-    enabled: true
-    name: result-app-prod
-    path: k8s-manifests/result
-  
-  worker:
-    enabled: true
-    name: worker-app-prod
-    path: k8s-manifests/worker 
+  applications:
+    root:
+      enabled: true
+      name: voting-app-root-prod
+      path: .
+    
+    database:
+      enabled: true
+      name: database-app-prod
+      path: k8s-manifests/database
+    
+    redis:
+      enabled: true
+      name: redis-app-prod
+      path: k8s-manifests/redis
+    
+    vote:
+      enabled: true
+      name: vote-app-prod
+      path: k8s-manifests/vote
+    
+    result:
+      enabled: true
+      name: result-app-prod
+      path: k8s-manifests/result
+    
+    worker:
+      enabled: true
+      name: worker-app-prod
+      path: k8s-manifests/worker 

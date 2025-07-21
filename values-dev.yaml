@@ -1,51 +1,51 @@
-# Development environment values
-global:
-  namespace: voting-app-dev
-  repoURL: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
-  targetRevision: develop
-  project: default
+  # Development environment values
+  global:
+    namespace: voting-app-dev
+    repoURL: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
+    targetRevision: develop
+    project: default
 
-argocd:
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  argocd:
+    namespace: argocd
+    finalizers:
+      - resources-finalizer.argocd.argoproj.io
 
-syncPolicy:
-  automated:
-    prune: false  # Disable pruning in dev for safety
-    selfHeal: true
-  syncOptions:
-    - CreateNamespace=true
-    - PrunePropagationPolicy=foreground
-    - PruneLast=true
+  syncPolicy:
+    automated:
+      prune: false  # Disable pruning in dev for safety
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
 
-applications:
-  root:
-    enabled: true
-    name: voting-app-root-dev
-    path: .
-  
-  database:
-    enabled: true
-    name: database-app-dev
-    path: k8s-manifests/database
-  
-  redis:
-    enabled: true
-    name: redis-app-dev
-    path: k8s-manifests/redis
-  
-  vote:
-    enabled: true
-    name: vote-app-dev
-    path: k8s-manifests/vote
-  
-  result:
-    enabled: true
-    name: result-app-dev
-    path: k8s-manifests/result
-  
-  worker:
-    enabled: true
-    name: worker-app-dev
-    path: k8s-manifests/worker 
+  applications:
+    root:
+      enabled: true
+      name: voting-app-root-dev
+      path: .
+    
+    database:
+      enabled: true
+      name: database-app-dev
+      path: k8s-manifests/database
+    
+    redis:
+      enabled: true
+      name: redis-app-dev
+      path: k8s-manifests/redis
+    
+    vote:
+      enabled: true
+      name: vote-app-dev
+      path: k8s-manifests/vote
+    
+    result:
+      enabled: true
+      name: result-app-dev
+      path: k8s-manifests/result
+    
+    worker:
+      enabled: true
+      name: worker-app-dev
+      path: k8s-manifests/worker 
