@@ -18,8 +18,6 @@ spec:
     repoURL: {{ .Values.global.repoURL }}
     targetRevision: {{ .Values.global.targetRevision }}
     path: {{ .Values.applications.redis.path }}
-    directory:
-      include: {{ .Values.applications.redis.directory.include }}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ .Values.global.namespace }}
