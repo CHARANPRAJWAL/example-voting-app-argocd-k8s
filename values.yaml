@@ -36,38 +36,28 @@ applications:
   database:
     enabled: true
     name: database-app
-    path: .
-    directory:
-      include: db.yaml
+    path: k8s-manifests/database
   
   # Redis application
   redis:
     enabled: true
     name: redis-app
-    path: .
-    directory:
-      include: redis.yaml
+    path: k8s-manifests/redis
   
   # Vote application
   vote:
     enabled: true
     name: vote-app
-    path: .
-    directory:
-      include: vote.yaml
+    path: k8s-manifests/vote
   
   # Result application
   result:
     enabled: true
     name: result-app
-    path: .
-    directory:
-      include: result.yaml
+    path: k8s-manifests/result
   
   # Worker application
   worker:
     enabled: true
     name: worker-app
-    path: .
-    directory:
-      include: worker.yaml 
+    path: k8s-manifests/worker 

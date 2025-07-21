@@ -28,34 +28,24 @@ applications:
   database:
     enabled: true
     name: database-app-prod
-    path: .
-    directory:
-      include: db.yaml
+    path: k8s-manifests/database
   
   redis:
     enabled: true
     name: redis-app-prod
-    path: .
-    directory:
-      include: redis.yaml
+    path: k8s-manifests/redis
   
   vote:
     enabled: true
     name: vote-app-prod
-    path: .
-    directory:
-      include: vote.yaml
+    path: k8s-manifests/vote
   
   result:
     enabled: true
     name: result-app-prod
-    path: .
-    directory:
-      include: result.yaml
+    path: k8s-manifests/result
   
   worker:
     enabled: true
     name: worker-app-prod
-    path: .
-    directory:
-      include: worker.yaml 
+    path: k8s-manifests/worker 
