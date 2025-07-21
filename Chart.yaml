@@ -13,5 +13,5 @@ home: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
 sources:
   - https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
 maintainers:
-  - name: Your Name
-    email: your.email@example.com 
+  - name: charan prajwal
+    email: charanprajwal001@gmail.com
