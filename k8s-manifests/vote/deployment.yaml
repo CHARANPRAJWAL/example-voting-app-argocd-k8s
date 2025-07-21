@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: vote
-          image: dockersamples/examplevotingapp_vote:before
+          image: ghcr.io/charanprajwal/example-voting-app-ci/vote@sha256:c34d230771b6a352ab21f22c8de9bcc04d320add0c78cbf688b2ebd82f3b1bef
           ports:
             - containerPort: 80
               name: vote 
