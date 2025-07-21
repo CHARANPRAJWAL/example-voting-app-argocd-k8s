@@ -1,3 +1,4 @@
+{{- if and .Values.applications (hasKey .Values.applications "redis") }}
 {{- if .Values.applications.redis.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -23,4 +24,5 @@ spec:
     namespace: {{ .Values.global.namespace }}
   syncPolicy:
 {{- toYaml .Values.syncPolicy | nindent 4 }}
+{{- end }}
 {{- end }} 
