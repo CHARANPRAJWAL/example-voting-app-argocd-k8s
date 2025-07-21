@@ -1,9 +1,8 @@
-# Production environment values
 global:
   namespace: voting-app-prod
   repoURL: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
   targetRevision: main
-  project: default
+  project: production
 
 argocd:
   namespace: argocd
@@ -24,27 +23,22 @@ applications:
     enabled: true
     name: voting-app-root-prod
     path: .
-  
   database:
     enabled: true
     name: database-app-prod
     path: k8s-manifests/database
-  
   redis:
     enabled: true
     name: redis-app-prod
     path: k8s-manifests/redis
-  
   vote:
     enabled: true
     name: vote-app-prod
     path: k8s-manifests/vote
-  
   result:
     enabled: true
     name: result-app-prod
     path: k8s-manifests/result
-  
   worker:
     enabled: true
     name: worker-app-prod
