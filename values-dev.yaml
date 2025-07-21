@@ -4,6 +4,7 @@ global:
   targetRevision: develop
   project: default
 
+
 argocd:
   namespace: argocd
   finalizers:
