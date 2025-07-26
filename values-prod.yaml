@@ -3,6 +3,8 @@ global:
   repoURL: https://github.com/CHARANPRAJWAL/example-voting-app-argocd-k8s.git
   targetRevision: main
   project: default
+  destination:
+    server: https://10.201.1.105:6443  # cluster-prod for production
 
 argocd:
   namespace: argocd

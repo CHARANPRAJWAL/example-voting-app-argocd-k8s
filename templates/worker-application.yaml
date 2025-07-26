@@ -20,7 +20,7 @@ spec:
     targetRevision: {{ .Values.global.targetRevision }}
     path: {{ .Values.applications.worker.path }}
   destination:
-    server: https://kubernetes.default.svc
+    server: {{ .Values.global.destination.server }}
     namespace: {{ .Values.global.namespace }}
   syncPolicy:
 {{- toYaml .Values.syncPolicy | nindent 4 }}
